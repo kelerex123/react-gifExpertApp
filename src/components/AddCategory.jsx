@@ -1,8 +1,11 @@
 import { useState } from "react"
 
+const defaultFunction = () => {
+    console.error("Se debe mandar obligatoriamente una funcion");
+}
 
 // export const AddCategory = ({setCategories}) => {
-export const AddCategory = ({onNewCategory}) => {
+export const AddCategory = ({onNewCategory = defaultFunction}) => {
 
     const [inputValue, setInputValue] = useState('');
 
@@ -22,7 +25,7 @@ export const AddCategory = ({onNewCategory}) => {
     }
 
     return (
-        <form onSubmit={onSubmit}>
+        <form onSubmit={onSubmit} aria-label="form">
             <input 
                 type="text"
                 placeholder="Buscar gifs"
